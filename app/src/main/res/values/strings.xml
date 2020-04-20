@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RSA ENCRYPTION</string>
+    <string name="title">Rivest Shamir Adleman Crypto-system</string>
+    <string name="enterTextHere">Enter Text Here</string>
+    <string name="encrypt">Encrypt</string>
+    <string name="decrypt">Decrypt</string>
+    <string name="clear">Clear</string>
+    <string name="encryption">Encryption Text</string>
+    <string name="decryption">Decryption Text</string>
+</resources>
