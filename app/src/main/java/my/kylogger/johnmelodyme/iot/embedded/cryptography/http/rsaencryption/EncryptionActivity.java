@@ -21,6 +21,8 @@ package my.kylogger.johnmelodyme.iot.embedded.cryptography.http.rsaencryption;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +31,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.security.Key;
 import java.security.KeyPair;
 import java.util.Arrays;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class EncryptionActivity extends AppCompatActivity {
     public static final String TAG = "RSA";
@@ -80,12 +84,8 @@ public class EncryptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String dinput;
-                byte[] decrypted;
                 dinput = inputText.getText().toString().trim();
-                decrypted = RSAEncryptDecrypt.decrypt(dinput, publicKey);
-                dispD.setText("Decrypted : " + "{ \n " + Arrays.toString(decrypted) + "\n}");
-                dispE.setVisibility(View.INVISIBLE);
-                Log.d(TAG, "Decrypted data: " + "{ \n " + Arrays.toString(decrypted) + "\n}");
+                dispE.setText("Decrypted : " + dinput);
             }
         });
 
@@ -98,5 +98,25 @@ public class EncryptionActivity extends AppCompatActivity {
                 dispE.setText(getResources().getString(R.string.encryption));
             }
         });
+    }
+
+    @Override
+    // TODO  onCreateOptionsMenu()
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    // TODO onOptionsItemSelected()
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == R.id.about) {
+            new SweetAlertDialog(EncryptionActivity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                    .setTitleText("About")
+                    .setContentText("Developed By John Melody Me")
+                    .setCustomImage(R.mipmap.applogo)
+                    .show();
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 }

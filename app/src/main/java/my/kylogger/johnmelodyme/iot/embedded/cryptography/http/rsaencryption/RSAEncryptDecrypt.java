@@ -11,10 +11,9 @@ public class RSAEncryptDecrypt {
         }
         return null;
     }
-    public static byte[] decrypt(String encrypted, Key publicKey) {
+    public static byte[] decrypt(byte[] encrypted, Key publicKey) {
         if (encrypted != null && publicKey != null) {
-            byte[] decData = convert(encrypted, publicKey, Cipher.DECRYPT_MODE);
-            return decData;
+            return convert(encrypted, publicKey, Cipher.DECRYPT_MODE);
         }
         return null;
     }
