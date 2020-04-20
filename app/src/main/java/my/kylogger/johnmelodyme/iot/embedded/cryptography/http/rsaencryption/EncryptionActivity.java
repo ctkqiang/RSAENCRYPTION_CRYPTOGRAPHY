@@ -75,7 +75,7 @@ public class EncryptionActivity extends AppCompatActivity {
                 encrypted = RSAEncryptDecrypt.encrypt(input, privateKey);
                 dispE.setText("Encrypted : " + "{ \n " + Arrays.toString(encrypted) + "\n}");
                 dispD.setVisibility(View.INVISIBLE);
-                Log.d(TAG, "Encrypted Data " + "{ \n " + Arrays.toString(encrypted) + "\n}");
+                Log.d(TAG, "Encrypted Data " +input+ "{ \n " + Arrays.toString(encrypted) + "\n}");
             }
         });
 
